@@ -1,0 +1,14 @@
+// .vscode/settings.json
+{
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true, // 保存时，自动格式化
+    "source.fixAll.eslint": true, // 保存时，eslint 自动纠正
+    "source.organizeImports": false // 关闭vscode 文件头部 import 排序
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

@@ -1,0 +1,44 @@
+{
+  "name": "mock-serve",
+  "description": "简单提供接口mock服务。",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {
+    "koa": "^2.14.1",
+    "mockjs": "^1.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "eslint": "^8.33.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.3"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luozyiii/mock-serve.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luozyiii/mock-serve/issues"
+  },
+  "homepage": "https://github.com/luozyiii/mock-serve#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
+      "prettier --write"
+    ]
+  }
+}
