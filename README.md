@@ -15,10 +15,12 @@
 ## 需求
 
 1、根据提供的 json 结构，随机生成返回数据
+
 2、按目录结构存放 json，src/mock/a-project/login/index.json
+
 3、根据目录决定接口请求路径
 
-## koa + mockjs 实现（方案二）
+## [koa](https://koa.bootcss.com/) + [mockjs](http://mockjs.com/) 实现（方案二）
 
 采用方案二实现，需要学习 mockjs 规则
 
@@ -75,5 +77,68 @@ http://127.0.0.1:3000/mock/demo/test
       "id": 3
     }
   ]
+}
+```
+
+### 常用 mock 规则，详细参考 [mockjs](https://github.com/nuysoft/Mock/wiki) 文档
+
+#### 数组随机返回 1-3 条数据，ID 从 1 自增
+
+```ts
+{
+  "data|1-3": [
+    {
+      "id|+1": 1
+    }
+  ]
+}
+```
+
+#### 随机布尔值
+
+```ts
+{
+  "boolean": "@boolean",
+}
+```
+
+#### 随机中文名、中文标题 6-10 字、随机段落
+
+```ts
+{
+  "name": "@cname",
+  "title": "@ctitle(6,10)",
+  "cparagraph": "@cparagraph(2,3)"
+}
+```
+
+#### 随机日期和当前日期
+
+```ts
+{
+  "time": "@time",
+  "date": "@date",
+  "datetime": "@datetime",
+  "now": "@now"
+}
+```
+
+#### 随机地址、IP、URL、email
+
+```ts
+{
+  "address": "@county(true)",
+  "ip": "@ip",
+  "url": "@url",
+  "email": "@email"
+}
+```
+
+#### 随机图片和颜色
+
+```ts
+{
+  "img": "@img",
+  "color": "@color"
 }
 ```
