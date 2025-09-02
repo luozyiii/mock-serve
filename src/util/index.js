@@ -24,14 +24,17 @@ const mockData = (jsonData) => {
 
 const getJson = (url) => {
   return new Promise((resolve) => {
-    // eslint-disable-next-line no-undef
-    fs.readFile(path.join(process.cwd(), `src${url}.json`), function (err, data) {
+    fs.readFile(path.join(process.cwd(), `src${url}.json`), 'utf8', (err, data) => {
       if (err) {
         resolve({ code: -1, msg: '接口不存在' });
-        return console.error(err);
+        return;
       }
-      const jsonData = JSON.parse(data.toString());
-      resolve({ code: 200, msg: '请求成功', ...mockData(jsonData) });
+      try {
+        const jsonData = JSON.parse(data);
+        resolve({ code: 200, msg: '请求成功', ...mockData(jsonData) });
+      } catch (parseErr) {
+        resolve({ code: -1, msg: 'JSON 格式错误' });
+      }
     });
   });
 };
